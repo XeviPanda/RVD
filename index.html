@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Video Redirect</title>
+    <script>
+        const videos = [
+            // English Recipes
+            "https://www.youtube.com/watch?v=med7wIzDQg0", // 1000 Calorie $3.33 BACON MAC & CHEESE
+            "https://www.youtube.com/watch?v=6SBeM4CCcwo", // Never Eat High Fat, High Calorie, High Cholesterol Food Again
+            "https://www.youtube.com/watch?v=XFerKUMO0sg", // ANABOLIC BACON MAC & CHEESE PIZZA
+            "https://www.youtube.com/watch?v=Ux5EWhiEXxE", // 14 Easy Bacon Recipes For Dinner
+            "https://www.youtube.com/watch?v=pM9fSuLqOdI", // How to Steam Bacon | Crispy & Low Calorie
+            "https://www.youtube.com/watch?v=DsbmV41CzJs", // PAN HAGGERTY RECIPE | EASY POTATO & BACON BASED
+            "https://www.youtube.com/watch?v=qe3U9Nql2no", // 25 Days 25 Bacon Recipes
+            "https://www.youtube.com/watch?v=EyB_BL2c8is", // 6 Heavenly Recipes For True Bacon Lovers
+            "https://www.youtube.com/watch?v=oyHladsJwag", // ANABOLIC CHEESY CHICKEN BACON CASSEROLE
+            "https://www.youtube.com/watch?v=keAAQIst2VM", // EASIEST BULKING MEALS | 3 High Calorie Recipes
+            "https://www.youtube.com/watch?v=7T4c08EfZ5g", // The Simplest High Calorie Meal for When You Are Bulking
+            "https://www.youtube.com/watch?v=c6ZIIWPEu2g", // BULKING DAY MEAL PREP | My Favourite High Calorie Recipes
+            "https://www.youtube.com/watch?v=c74xsNG7lQg", // 12 Bacon Recipes That Are Guaranteed to Make Any Day Better!
+            "https://www.youtube.com/watch?v=L0BwloWlaNk", // 3 High-Calorie Overnight Oats Recipes for Easy Muscle Gain
+            "https://www.youtube.com/watch?v=XhXM8nDrsFw", // Blast from the Past: Brown Sugar Bacon Recipe
+            "https://www.youtube.com/watch?v=XiCoLl2BBC0", // 19 High-Calorie Smoothies for Hacking Weight Gain
+            "https://www.youtube.com/watch?v=RYQ8rHnA_6s", // 10 Easy Bacon Recipes to make at home part 1/2
+            "https://www.youtube.com/watch?v=JKUoE0g7rcw", // Easy HIGH CALORIE SMOOTHIE recipe for bulking season!!
+            "https://www.youtube.com/watch?v=yYNhuVjZAkA", // 7 Brilliant Bacon Recipes
+            "https://www.youtube.com/watch?v=inFfqdMAcZo", // 2 best high calorie recipes for weight gain (Under 10 mins)
+            "https://www.youtube.com/watch?v=HP2XIL9Qsm0", // The Best Bacon Recipes | 10 Perfectly Bacon Recipes
+            "https://www.youtube.com/watch?v=3wcBbzY8EK8", // Weight Gain Smoothie (High-Calorie Smoothie Recipe)
+            "https://www.youtube.com/watch?v=ptBHOXRwg8I", // 6 Fun Recipes for Bacon Lovers
+            "https://www.youtube.com/watch?v=fgBlhfqxx2Y", // 10 Best High Calorie SMOOTHIES That Are Insanely Delicious
+            "https://www.youtube.com/watch?v=asUj_7c1JTE", // How to Cook Bacon in the Oven | Oven Baked Bacon Recipe
+            "https://www.youtube.com/watch?v=qfQ_1XsCZO8", // How to gain weight fast aka high calorie recipes
+            "https://www.youtube.com/watch?v=fa3mUGyPnSU", // Full Day of Eating 1700 Calories | 3 *Super High Volume
+            "https://www.youtube.com/watch?v=1bSDtlARvPI", // Ultimate Bacon Recipes
+
+            // Spanish Recipes
+            "https://www.youtube.com/watch?v=iwFr_chvnG8", // NACHOS GIGANTES con MUCHO QUESO Y BACON +11.000KCAL en 30 MINUTOS
+            "https://www.youtube.com/watch?v=C8spLMMd9RQ", // LA HAMBURGUESA de +5KG con MÁS CALORÍAS hecha en CASA 13.000KCAL
+            "https://www.youtube.com/watch?v=V5-DEo3kOko", // Espaguetis al ajillo con bacon, en SOLO 10 MINUTOS
+            "https://www.youtube.com/watch?v=UQ42KGX4xrQ", // Crispy Bacon ¡¡¡MUY CRUJIENTE Y CON MENOS GRASA!!!
+            "https://www.youtube.com/watch?v=WoJgztxuA7k", // 5 CENAS ALTAS en PROTEÍNAS en menos de 20 MINUTOS
+            "https://www.youtube.com/watch?v=bgZcOVkEYlM", // 5 Cenas Altas en Proteína en 5 MIN
+            "https://www.youtube.com/watch?v=CTDppFFL-Eo", // Recetas de Almuerzos con 100 Calorías | Comidas Saludables Para Perder Peso
+            "https://www.youtube.com/watch?v=xidvAYLH0_E", // ESTO COMO EN UN DÍA - Recetas saludables
+            "https://www.youtube.com/watch?v=q-WMa8lGLIE", // 10 Alimentos Saludables pero con MUCHAS CALORÍAS
+            "https://www.youtube.com/watch?v=-OLFRlxIra4", // Receta De comida sana, bajas en GRASAS Y CALORIAS
+            "https://www.youtube.com/watch?v=BquDsodeLQA", // QUÉ COMO EN UN DÍA | Mi Dieta Fitness de 1800 Calorías
+            "https://www.youtube.com/watch?v=1Bc26Nzg3_o", // Pastel de carne con bacon fácil y delicioso
+            "https://www.youtube.com/watch?v=N2qH3X9lW6c", // Croquetas de bacon y queso perfectas
+            "https://www.youtube.com/watch?v=H_VY8ttU-6g", // Hamburguesa doble con bacon y queso cheddar
+            "https://www.youtube.com/watch?v=g9q6MYfnfT4", // Pizza casera con extra bacon
+            "https://www.youtube.com/watch?v=URn7sczZ5Co", // Huevos revueltos con bacon y aguacate
+            "https://www.youtube.com/watch?v=7W3rFR63Wqs", // Tarta salada de bacon y champiñones
+            "https://www.youtube.com/watch?v=8JKCTCQGQk8", // Pancakes americanos con tocino y sirope
+            "https://www.youtube.com/watch?v=lOQGmDpbfkM", // Calzone de bacon y tres quesos
+            "https://www.youtube.com/watch?v=5ZbSKq8RzIg", // Nachos con queso fundido y bacon
+            "https://www.youtube.com/watch?v=DaDR3YTREXY", // Bocadillo de bacon con mayonesa casera
+            "https://www.youtube.com/watch?v=t6XV5NRE6xo"  // Pasta Alfredo con bacon y crema
+        ];
+
+        window.onload = function() {
+            const randomIndex = Math.floor(Math.random() * videos.length);
+            window.location.href = videos[randomIndex];
+        };
+    </script>
+</head>
+<body>
+    <p>Redirecting you to a random video...</p>
+</body>
+</html>
